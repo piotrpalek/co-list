@@ -50,3 +50,26 @@ test('it renders the passed items', function(){
 
   equal(text, '123');
 });
+
+test('it renders the passed items', function(){
+  wrapperView = View.create({
+    container: this.container,
+    list: [1, 2, 3],
+    meta: {
+      selected: [1, 2]
+    },
+    template: compile(
+      '{{#pp-list meta=view.meta collection=view.list as |item meta|}}' +
+        '<span>[{{meta.selected}}]</span>' +
+      '{{/pp-list}}'
+    )
+  });
+
+  run(function(){
+    wrapperView.appendTo('#ember-testing-container');
+  });
+
+  var text = wrapperView.$('span').text();
+
+  equal(text, '[true][true][false]');
+});
