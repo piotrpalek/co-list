@@ -1,5 +1,5 @@
 {
-  "name": "ember-co-list",
+  "name": "ember-cli-co-list",
   "version": "0.0.1",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
@@ -33,7 +33,10 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "co-list",
+    "list",
+    "collection"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
