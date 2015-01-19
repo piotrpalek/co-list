@@ -1,6 +1,6 @@
-# Ember-cli co-list component
+# Co-list
 
-Ember-co-list is a very simple list component for Ember-cli. This is still under development and neither the API or features are finished or stable.
+Co-list is a very simple list component for Ember-cli. This is still under development and neither the API or features are finished or stable.
 
 ## Installation
 
