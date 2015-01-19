@@ -1,25 +1,49 @@
 # Ember-co-list
 
-This README outlines the details of collaborating on this Ember addon.
+Ember-co-list is a very simple list component for Ember-cli. This is still under development and neither the API or features are finished or stable.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+`npm install --save-dev ember-cli-co-list`
 
-## Running
+## Intended use
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+### Simple looping
 
-## Running Tests
+```js
+// assuming someCollection = [1, 2, 3]
+<ul>
+{{#co-list collection=someColletion as |item|}}
+  <li>{{item}}</li>
+{{/co-list}}
+</ul>
+```
+This should produce three `<li>` tags with the numbers 1, 2 and 3.
 
-* `ember test`
-* `ember test --server`
+### Meta property
 
-## Building
+The meta property allows us to associate some additional information with an item from the collection property without having to use `ObjectProxy` or similiar. For now this works by adding a `meta` property to the component. 
 
-* `ember build`
+The only supported use-case (as for now) is shown in the example below.
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+```js
+// assuming someCollection = [1, 2, 3]
+// metaObject = {
+//   selected: [1, 2],
+//   somethingElse: [2, 3]
+// }
+
+<ul>
+{{#co-list meta=metaObject collection=someColletion as |item|}}
+  <li {{bind-attr class="meta.selected:selected"}}>{{item}} - {{somethingElse}}</li>
+{{/co-list}}
+</ul>
+```
+In short, if an item from the provided collection is in the `selected` array, the `meta` property (used in the template) will be true. So for example if we assume the current item is the number 1, then the `meta` property will look like this:
+
+```js
+{
+  selected: true,
+  somethingElse: false
+}
+```
