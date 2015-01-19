@@ -4,6 +4,7 @@ import Ember from 'ember';
 var compile = Ember.Handlebars.compile;
 var View = Ember.View;
 var run = Ember.run;
+var get = Ember.get;
 
 var wrapperView;
 
@@ -51,7 +52,7 @@ test('it renders the passed items', function(){
   equal(text, '123');
 });
 
-test('it renders the passed items', function(){
+test('meta information is working properly', function(){
   wrapperView = View.create({
     container: this.container,
     list: [1, 2, 3],
@@ -72,4 +73,26 @@ test('it renders the passed items', function(){
   var text = wrapperView.$('span').text();
 
   equal(text, '[true][true][false]');
+});
+
+test('#metaKeys', function() {
+  var component = this.subject({meta: { test: '1', other: '2' }});
+  deepEqual(component.get('metaKeys'), ['test', 'other']);
+
+  run(function(){
+    component.set('meta', { foo: 'bar', bar: 'foo' });
+  });
+
+  deepEqual(component.get('metaKeys'), ['foo', 'bar']);
+});
+
+test('#generateMetaObject', function() {
+  var component = this.subject({meta: { foo: [1, 2], bar: [2, 3], baz: [1, 3] }});
+  var metaKeys = component.get('metaKeys');
+  var item = 1;
+  var metaObject = component.generateMetaObject(metaKeys, item);
+
+  ok(get(metaObject, 'foo'));
+  ok(get(metaObject, 'baz'));
+  equal(get(metaObject, 'bar'), false);
 });
