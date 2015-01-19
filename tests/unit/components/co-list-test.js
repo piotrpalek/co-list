@@ -8,7 +8,7 @@ var get = Ember.get;
 
 var wrapperView;
 
-moduleForComponent('pp-list', 'pp-list component', {
+moduleForComponent('co-list', 'co-list component', {
   teardown: function() {
     if(wrapperView) {
       run(function(){
@@ -37,9 +37,9 @@ test('it renders the passed items', function(){
     container: this.container,
     list: [1, 2, 3],
     template: compile(
-      '{{#pp-list collection=view.list as |item|}}' +
+      '{{#co-list collection=view.list as |item|}}' +
         '<span>{{item}}</span>' +
-      '{{/pp-list}}'
+      '{{/co-list}}'
     )
   });
 
@@ -60,9 +60,9 @@ test('meta information is working properly', function(){
       selected: [1, 2]
     },
     template: compile(
-      '{{#pp-list meta=view.meta collection=view.list as |item meta|}}' +
+      '{{#co-list meta=view.meta collection=view.list as |item meta|}}' +
         '<span>[{{meta.selected}}]</span>' +
-      '{{/pp-list}}'
+      '{{/co-list}}'
     )
   });
 

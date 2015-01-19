@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-pp-list'
+  name: 'ember-co-list'
 };

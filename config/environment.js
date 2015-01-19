@@ -2,6 +2,6 @@
 
 module.exports = function(/* environment, appConfig */) {
   return {
-    podModulePrefix: 'ember-pp-list'
+    podModulePrefix: 'ember-co-list'
   };
 };
