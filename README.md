@@ -1,4 +1,4 @@
-# Ember-co-list
+# Ember-cli co-list component
 
 Ember-co-list is a very simple list component for Ember-cli. This is still under development and neither the API or features are finished or stable.
 
@@ -27,19 +27,20 @@ The meta property allows us to associate some additional information with an ite
 The only supported use-case (as for now) is shown in the example below.
 
 ```js
-// assuming someCollection = [1, 2, 3]
+// assuming:
+// someCollection = [1, 2, 3]
 // metaObject = {
 //   selected: [1, 2],
 //   somethingElse: [2, 3]
 // }
 
 <ul>
-{{#co-list meta=metaObject collection=someColletion as |item|}}
-  <li {{bind-attr class="meta.selected:selected"}}>{{item}} - {{somethingElse}}</li>
-{{/co-list}}
+  {{#co-list meta=metaObject collection=someColletion as |item|}}
+    <li {{bind-attr class="meta.selected:selected"}}>{{item}} - {{somethingElse}}</li>
+  {{/co-list}}
 </ul>
 ```
-In short, if an item from the provided collection is in the `selected` array, the `meta` property (used in the template) will be true. So for example if we assume the current item is the number 1, then the `meta` property will look like this:
+In short, if an item from the provided collection is in the `selected` array, the `meta` property (used in the template) will be true. So for example if we assume the current `item` is the number 1, then the `meta` property will look like this:
 
 ```js
 {
