@@ -14,11 +14,7 @@ export default Ember.Component.extend({
   }),
 
   metaKeys: computed('meta', function(){
-    var meta = this.get('meta');
-
-    if(!meta) {
-      return [];
-    }
+    var meta = this.get('meta') || [];
 
     return keys(meta);
   }),
@@ -31,9 +27,8 @@ export default Ember.Component.extend({
   },
 
   present: function(metaKey, item) {
-    var metaArray = this.get('meta.' + metaKey);
-    if(metaArray) {
-      return metaArray.indexOf(item) !== -1
-    }
+    var metaArray = this.get('meta.' + metaKey) || [];
+
+    return metaArray.indexOf(item) !== -1
   }
 });
