@@ -48,3 +48,5 @@ In short, if an item from the provided collection is in the `selected` array, th
   somethingElse: false
 }
 ```
+
+The thought behind this is that we can use simple array methods to add an item to the selected, active, etc., list and have a way of accessing that information while looping through the list. Additionally we don't have to use proxy objects so there's no special behavior for the items inside the loop, they are exactly the same thing that the user provides to the component.
