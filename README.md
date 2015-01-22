@@ -36,7 +36,7 @@ The only supported use-case (as for now) is shown in the example below.
 
 <ul>
   {{#co-list meta=metaObject collection=someColletion as |item meta|}}
-    <li {{bind-attr class="meta.selected:selected"}}>{{item}} - {{somethingElse}}</li>
+    <li {{bind-attr class="meta.selected:selected"}}>{{item}} - {{meta.somethingElse}}</li>
   {{/co-list}}
 </ul>
 ```
