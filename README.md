@@ -22,7 +22,7 @@ This should produce three `<li>` tags with the numbers 1, 2 and 3.
 
 ### Meta property
 
-The meta property allows us to associate some additional information with an item from the collection property without having to use `ObjectProxy` or similiar. For now this works by adding a `meta` property to the component. 
+The meta property allows us to associate some additional information with an item from the collection property without having to use a `ObjectProxy` or similiar. It works by adding a `meta` property to the component. 
 
 The only supported use-case (as for now) is shown in the example below.
 
@@ -40,7 +40,7 @@ The only supported use-case (as for now) is shown in the example below.
   {{/co-list}}
 </ul>
 ```
-In short, if an item from the provided collection is in the `selected` array, the `meta` property (used in the template) will be true. So for example if we assume the current `item` is the number 1, then the `meta` property will look like this:
+In short, if an item from the provided collection is in the `selected` array, the `meta.selected` property (used in the template) will be true. So for example if we assume the current `item` is the number 1, then the `meta` property will look like this:
 
 ```js
 {
